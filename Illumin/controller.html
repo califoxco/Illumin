@@ -1,0 +1,135 @@
+<html>
+  <head>
+  <style>
+    img {
+      width:100%;
+      height:100%;
+      position: absolute;
+      z-index: -1;
+    }
+    #left-button{
+      width:15%;
+      height: 25%;
+      position: absolute;
+      top:27%;
+      left: 6%;
+      background-color: transparent;
+      border: 0px;
+    }     
+    #right-button{
+      width:15%;
+      height: 25%;
+      position: absolute;
+      top:27%;
+      left: 23%;
+      background-color: transparent;
+      border: 0px;
+    }      
+    #top-button{
+      width:15%;
+      height: 25%;
+      position: absolute;
+      top:23%;
+      left: 81%;
+      background-color: transparent;
+      border: 0px;
+    }  
+    #down-button{
+      width:13%;
+      height: 25%;
+      position: absolute;
+      top:32%;
+      left: 63%;
+      background-color: transparent;
+      border: 0px;
+    }
+  </style>
+  </head>
+  <body>
+    <img src="gameboy.jpg"></img>
+    <button id = "left-button"></button>
+    <button id = "right-button"></button>
+    <button id = "top-button"></button>
+    <button id = "down-button"></button>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script>
+        var myDataRef = new Firebase('https://glaring-inferno-4068.firebaseio.com/');
+        var keyPush = {"left":false, "right":false, "top":false, "down":false};
+        
+        function check() {
+            myDataRef.child("keys").push(keyPush);
+        }
+//        
+//        if (window.DeviceOrientationEvent) {
+//    
+//        window.addEventListener('deviceorientation', function(eventData) {
+//          // gamma is the left-to-right tilt in degrees, where right is positive
+//          var tiltFB = eventData.beta;
+//            
+//          if (tiltFB > 4) {
+//              if (keyPush["right"] == false){
+//                  keyPush["right"] = true; 
+//                  keyPush["left"] = false; 
+//                  check();
+//              }
+//          }
+//          else if (tiltFB < -4) {
+//              if (keyPush["left"] == false){
+//                  keyPush["left"] = true; 
+//                  keyPush["right"] = false; 
+//                  check();
+//              }
+//          }
+//          else {
+//              if (keyPush["left"] == true || keyPush["right"] == true)
+//              {
+//                  keyPush["left"] = false;
+//                  keyPush["right"] = false; 
+//                  check();
+//              }
+//          }    
+//            },false);
+//         }
+//        
+        document.getElementById("left-button").addEventListener("touchstart", function(){
+         keyPush["left"] = true;
+         check();
+        },false);       
+        
+        document.getElementById("right-button").addEventListener("touchstart", function(){
+         keyPush["right"] = true;
+         check();
+        },false);       
+        
+        document.getElementById("top-button").addEventListener("touchstart", function(){
+         keyPush["top"] = true;
+         check();
+        },false);        
+        
+        document.getElementById("down-button").addEventListener("touchstart", function(){
+         keyPush["down"] = true;
+         check();
+        },false);
+        
+        document.getElementById("left-button").addEventListener("touchend", function(){
+         keyPush["left"] = false;
+         check();
+        },false);        
+        
+        document.getElementById("right-button").addEventListener("touchend", function(){
+         keyPush["right"] = false;
+         check();
+        },false);        
+        
+        document.getElementById("top-button").addEventListener("touchend", function(){
+         keyPush["top"] = false;
+         check();
+        },false);        
+        
+        document.getElementById("down-button").addEventListener("touchend", function(){
+         keyPush["down"] = false;
+         check();
+        },false);
+    </script>
+  </body>
+</html>

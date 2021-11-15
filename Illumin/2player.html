@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <style>
+      #canvas1{
+        position: absolute;
+        margin-left: 250px;
+        z-index: 3;
+      }
+      #filter{
+        position: absolute;
+        margin-left: 250px;
+        z-index: 10;
+        opacity: 1;
+      }
+      #artifact{
+        position: absolute;
+        left: 300px;
+        z-index: 5;
+        top: 650;
+      }
+      #hint{
+        position: absolute;
+        left: 300px;
+        z-index: 5;
+        top: 680;
+      }
+      #border{
+          width: 440;
+          height: 230;
+          border: 50px solid white;
+          position: absolute;
+          left: 245px;
+          top: 200;
+ 
+      }
+        #canvas2{
+            z-index: 2;
+            border: 0px solid black;
+            margin-left: 250px;
+            margin-top: 270px;
+            position: absolute;
+        }   
+        #canvas3{
+            z-index: 1;
+            margin-left: 250px;
+            position: absolute;
+        }
+        #bg {
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            margin-left: 250;
+            z-index: -1;
+            background-color: rgb(21,187,255);
+        }
+    </style>
+  </head>
+  <body>
+    <img src = "filter.png" id="filter">
+    <p>Illuminati----Isreal</p>
+    <audio src="bgm.mp3" id="bgm1"></audio>
+    <audio src="jump.mp3" id="jump"></audio>
+    <audio src="horrorring.mp3" id="bgm2"></audio>
+    <audio src="scream.mp3" id="scream"></audio>
+    <audio src="founditem.mp3" id="founditem"></audio>
+    <audio src="laugh.mp3" id="laugh"></audio>
+    <div id = "bg">
+    </div>
+    <div>
+        <canvas id = "canvas1"></canvas>
+        <canvas id = "canvas2"></canvas>
+        <canvas id = "canvas3"></canvas>
+        <p id="artifact"></p>
+        <p id="hint"></p>
+    </div>
+    <div>
+    </div>
+    <script src= "levels.js"></script>
+    <script src= "2p.js"></script>   
+
+  </body>
+</html>
